@@ -17,15 +17,15 @@ module['exports'] = function method (hook) {
     var name= title.substring(0, i-1).trim();
 
     var content=document.querySelector("table.contentpaneopen").textContent;
-    var index = content.indexOf('std.');
-    var string=content.substring(index,index+8).replace('std.','');
+    var std_idx = content.indexOf('std.');
+    var std_rating=content.substring(std_idx,std_idx+8).replace('std.','');
 
-    var index1 = content.indexOf('rapid');
-    var string1=content.substring(index1,index1+9).replace('rapid','');
+    var rpd_idx = content.indexOf('rapid');
+    var rpd_rating=content.substring(rpd_idx,rpd_idx+9).replace('rapid','');
 
-    var index2 = content.indexOf('blitz');
-    var string2=content.substring(index2,index2+9).replace('blitz','');
+    var blz_idx = content.indexOf('blitz');
+    var blz_rating=content.substring(blz_idx,blz_idx+9).replace('blitz','');
 
-    hook.res.json({id:hook.params.id, name: name, std: string, rapid: string1, blitz: string2});    
+    hook.res.json({id:hook.params.id, name: name, std: std_rating, rapid: rpd_rating, blitz: blz_rating});    
   })
 };

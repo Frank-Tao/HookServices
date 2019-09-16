@@ -5,9 +5,7 @@ module['exports'] = function method (hook) {
   // hook.res is a Node.js httpServer.ServerResponse
   var jsdom = require('jsdom');
 
-  jsdom.env("http://sachess.org.au/ratings/player?id="+hook.params.id, [
-    'http://code.jquery.com/jquery-1.5.min.js'
-  ],
+  jsdom.env("http://sachess.org.au/ratings/player?id="+hook.params.id,   ['http://code.jquery.com/jquery-1.5.min.js'],
   function(errors, window) {
     var acfid,state,fideid,value, rating;
 
